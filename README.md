@@ -13,3 +13,4 @@ npm install
 ```bash
 npm run watch-css
 ```
+4. The `index.html` and `styles.css` can be found in `src/` directory.
