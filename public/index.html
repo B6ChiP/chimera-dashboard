@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Chimera Performance Metrics</title>
+  <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+    <script>
+        function toggleTheme() {
+            const theme = localStorage.getItem('theme') || 'light';
+            if (theme === 'dark') {
+                localStorage.setItem('theme', 'light'); // Save preference
+                document.documentElement.setAttribute('data-theme', 'light');
+            } else {
+                localStorage.setItem('theme', 'dark'); // Save preference
+                document.documentElement.setAttribute('data-theme', 'dark');
+            }
+        }
+    </script>
+  <div class="w-full h-screen bg-primary flex flex-row">
+      <div class="w-75 h-full flex flex-col gap-3 p-3 bg-accent">
+          <h3>Menu</h3>
+          <a class="text-base text-pastel-light-pink no-underline hover:underline" href="#section-project-overview">Project Overview</a>
+          <a class="text-base text-pastel-light-pink no-underline hover:underline" href="#section-metrics">Metrics</a>
+          <a class="text-base text-pastel-light-pink no-underline hover:underline" href="#section-documentation">Documentation</a>
+          <a class="text-base text-pastel-light-pink no-underline hover:underline" href="#section-team-members">Team Members</a>
+          <button onclick="toggleTheme()" class="bg-transparent hover:bg-pastel-light-pink text-secondary p-2 mt-auto border border-pastel-light-pink">
+              Switch Theme
+          </button>
+      </div>
+      <div class="h-full w-full overflow-y-auto text-secondary">
+          
+          
+          <div class="w-full h-auto flex flex-col p-3 gap-3">
+              <h1>Chimera Performance Dashboard</h1>
+              
+              <!-- Project Overview Section -->
+              <div id="section-project-overview" class="flex flex-col p-3 gap-3 border border-secondary w-full">
+                  <div class="w-full text-2xl">Project Overview</div>
+                  <div class="text-base">This project focuses on collecting and displaying Chimera performance data in a clear and user-friendly dashboard. </div>
+              </div>
+              
+              <!-- Metrics Section -->
+              <div id="section-metrics" class="flex flex-col p-3 gap-3 border border-secondary w-full">
+                  <div class="w-full text-2xl">Metrics</div>
+                  <div class="text-base">This section will show important system and GPU metrics such as CPU usage, memory usage, GPU utilization, temperature, and power consumption.  </div>
+              </div>
+              
+              <!-- Documentation Section -->
+              <div id="section-documentation" class="flex flex-col p-3 gap-3 border border-secondary w-full">
+                  <div class="w-full text-2xl">Documentation</div>
+                  <p>Our task is to collect performance metrics from servers on the UMass Boston CS cluster and display them on a dashboard website. The project uses two main tools: </p>
+                  <ul>
+                      <li><strong>Prometheus</strong> - software that reads data metrics from a server and stores them in a database.</li>
+                      <li><strong>Grafana</strong> - software that displays the data stored by Prometheus as visual charts and graphs.</li>
+                  </ul>
+                  <p>In order for Prometheus to collect data, a node exporter must be deployed on each server. A node exporter is the program that takes live readings from the system - CPU usage, memory, system load, and more. It can only report what is happening right now and has no way of storing data on its own. This is where Prometheus comes in. Prometheus periodically reads from the node exporter and stores the results in its database, building a history of the system's performance over time. </p>
+                  <img class="w-1/2 h-auto" src="./media/diagram_4.31.png" alt="diagram_4.31.png" />
+                  <div class="w-full text-2xl">Update (March 31st, 2026)</div>
+                  <p>So far, we have accomplished 4 main tasks:</p>
+                  <ul>
+                      <li><strong>Set up virtual machine on CS server</strong> - The VM runs Ubuntu on the CS server. All group members have access by SSHing into the machine.</li>
+                      <li><strong>Run node exporter on Babbage and Chimera</strong> - Babbage is the CS department's GPU server. Chimera is the cluster we are monitoring. We ran node_exporter on both, successfully reading their metrics.</li>
+                      <li><strong>Prometheus data collection</strong> - Prometheus is successfully scraping data from the node exporters and storing it.</li>
+                      <li><strong>Grafana display</strong> - Grafana is connected to Prometheus and correctly displaying the collected metrics.</li>
+                  </ul>
+              </div>
+              
+              <!-- Team Members Section -->
+              <div id="section-team-members" class="flex flex-col p-3 gap-3 border border-secondary w-full">
+                  <div class="w-full text-2xl">Team Members</div>
+                  <p>Blake, Phoenix, Stephanie, Desmond, Dhruv Aihemaiti </p>
+              </div>
+          </div>
+      </div>
+  </div>
+
+</body>
+</html>
+

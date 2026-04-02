@@ -1,0 +1,29 @@
+{
+  "name": "chimera-dashboard",
+  "version": "1.0.0",
+  "description": "You can view the live website here:   [Chimera Performance Metrics Website](https://www.cs.umb.edu/~hdeblois/cs410/longproj02/t6/#documentation)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build-css": "tailwindcss -i ./src/styles.css -o ./public/styles.css",
+    "watch-css": "tailwindcss -w -i ./src/styles.css -o ./public/styles.css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/B6ChiP/chimera-dashboard.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/B6ChiP/chimera-dashboard/issues"
+  },
+  "homepage": "https://github.com/B6ChiP/chimera-dashboard#readme",
+  "devDependencies": {
+    "@tailwindcss/cli": "^4.2.2",
+    "autoprefixer": "^10.4.27",
+    "postcss": "^8.5.8",
+    "tailwindcss": "^4.2.2"
+  }
+}
