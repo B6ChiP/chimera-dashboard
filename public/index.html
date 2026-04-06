@@ -56,35 +56,57 @@
               Switch Theme          </button>
       </div>
       <div class="h-full w-full overflow-y-auto text-secondary">
-          <div class="w-full h-auto flex flex-col p-3 gap-3">
+            <div class="w-full h-auto flex flex-col p-3 gap-3">
               <h1>Chimera Performance Dashboard</h1>
               <!-- Project Overview Section (editing first collapse) -->
-               <div id="section-project-overview">
-                    <button onclick="toggleSection(1)" class="w-full flex justify-between items-center py-5">
+               <div id="section-project-overview" class="flex flex-col p-3 gap-3 border border-secondary w-full">
+                    <button onclick="toggleSection(1)" class="w-full flex justify-between items-center">
                         <span class="text-2xl">Project Overview</span>
-                        <span id = "icon-1" class="transition-transform duration-200">
+                        <span id = "icon-1" class="transition-transform duration-300">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="w-8 h-8">
                                 <path fill-rule="evenodd" d="M11.78 9.78a.75.75 0 0 1-1.06 0L8 7.06 5.28 9.78a.75.75 0 0 1-1.06-1.06l3.25-3.25a.75.75 0 0 1 1.06 0l3.25 3.25a.75.75 0 0 1 0 1.06Z" clip-rule="evenodd" ></path>
                             </svg>
                         </span>
                     </button>
-                        <div id="content-1" class="overflow-hidden transition-all duration-200 ease-in-out">
+                        <div id="content-1" class="overflow-hidden transition-all duration-300 ease-in-out">
                             <div class="pb-5">
-                            This project focuses on collecting and displaying Chimera performance data in a clear and user-friendly dashboard.
+                            This project focuses on collecting and displaying Chimera performance 
+                            data in a clear and user-friendly dashboard.
                             </div> 
                         </div>
                     </div>
+            <!-- Metrics Section -->
+            <div id="section-metrics" class="flex flex-col p-3 gap-3 border border-secondary w-full">
+                <button onclick="toggleSection(2)" class="w-full flex justify-between items-center">
+                    <span class="text-2xl">Metrics</span>
+                    <span id = "icon-2" class="transition-transform duration-300">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="w-8 h-8">
+                            <path fill-rule="evenodd" d="M11.78 9.78a.75.75 0 0 1-1.06 0L8 7.06 5.28 9.78a.75.75 0 0 1-1.06-1.06l3.25-3.25a.75.75 0 0 1 1.06 0l3.25 3.25a.75.75 0 0 1 0 1.06Z" clip-rule="evenodd" ></path>
+                        </svg>
+                    </span>
+                </button>
+                <div id="content-2" class="overflow-hidden transition-all duration-300 ease-in-out">
+                    <div class="pb-5">
+                    This section will show important system and GPU metrics such as CPU usage, 
+                    memory usage, GPU utilization, temperature, and power consumption.
+                    </div> 
                 </div>
-              <!-- Metrics Section -->
-              <div id="section-metrics" class="flex flex-col p-3 gap-3 border border-secondary w-full">
-                  <div class="w-full text-2xl">Metrics</div>
-                  <div class="text-base">This section will show important system and GPU metrics such as CPU usage, memory usage, GPU utilization, temperature, and power consumption.  </div>
-              </div>
+            </div>
               
               <!-- Documentation Section -->
-              <div id="section-documentation" class="flex flex-col p-3 gap-3 border border-secondary w-full">
-                  <div class="w-full text-2xl">Documentation</div>
-                  <p>Our task is to collect performance metrics from servers on the UMass Boston CS cluster and display them on a dashboard website. The project uses two main tools: </p>
+            <div id="section-documentation" class="flex flex-col p-3 gap-3 border border-secondary w-full">
+                <button onclick="toggleSection(3)" class="w-full flex justify-between items-center">
+                    <span class="text-2xl">Documentation</span>
+                    <span id = "icon-3" class="transition-transform duration-300">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="w-8 h-8">
+                            <path fill-rule="evenodd" d="M11.78 9.78a.75.75 0 0 1-1.06 0L8 7.06 5.28 9.78a.75.75 0 0 1-1.06-1.06l3.25-3.25a.75.75 0 0 1 1.06 0l3.25 3.25a.75.75 0 0 1 0 1.06Z" clip-rule="evenodd" ></path>
+                        </svg>
+                    </span>
+                </button>
+                <div id="content-3" class="overflow-hidden transition-all duration-300 ease-in-out">
+                    <div class="pb-5">
+                  <p>Our task is to collect performance metrics from servers on the UMass Boston CS 
+                    cluster and display them on a dashboard website. The project uses two main tools: </p>
                   <ul>
                       <li><strong>Prometheus</strong> - software that reads data metrics from a server and stores them in a database.</li>
                       <li><strong>Grafana</strong> - software that displays the data stored by Prometheus as visual charts and graphs.</li>
@@ -99,14 +121,17 @@
                       <li><strong>Prometheus data collection</strong> - Prometheus is successfully scraping data from the node exporters and storing it.</li>
                       <li><strong>Grafana display</strong> - Grafana is connected to Prometheus and correctly displaying the collected metrics.</li>
                   </ul>
+                </div>
+                </div>
               </div>
-              
+
               <!-- Team Members Section -->
               <div id="section-team-members" class="flex flex-col p-3 gap-3 border border-secondary w-full">
                   <div class="w-full text-2xl">Team Members</div>
                   <p>Blake, Phoenix, Stephanie, Desmond, Dhruv Aihemaiti </p>
               </div>
           </div>
+      </div>
       </div>
   </div>
 
