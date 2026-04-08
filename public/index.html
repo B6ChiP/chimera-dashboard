@@ -51,17 +51,14 @@
 
             const downSVG = `
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-  <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
-</svg>
-
-
+            <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+            </svg>
             `;
 
             const rightSVG = `
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-  <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
-</svg>
-
+                <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+                </svg>
             `;
 
             if (content.style.maxHeight && content.style.maxHeight !== '0px') {
@@ -89,79 +86,46 @@
       <div class="h-full w-full overflow-y-auto text-secondary">
             <div class="w-full h-auto flex flex-col p-3 gap-3">
               <h1>Chimera Performance Dashboard</h1>
+
               <!-- Project Overview Section (editing first collapse) -->
-               <div id="section-project-overview" class="flex flex-col p-3 gap-3 border border-secondary w-full">
-                    <button onclick="toggleSection(1)" class="w-full flex justify-between items-center">
-                        <span class="text-2xl">Project Overview</span>
-                        <span id = "icon-1" class="transition-transform duration-300">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="w-8 h-8">
-                                <path fill-rule="evenodd" d="M11.78 9.78a.75.75 0 0 1-1.06 0L8 7.06 5.28 9.78a.75.75 0 0 1-1.06-1.06l3.25-3.25a.75.75 0 0 1 1.06 0l3.25 3.25a.75.75 0 0 1 0 1.06Z" clip-rule="evenodd" ></path>
-                            </svg>
-                        </span>
-                    </button>
-                        <div id="content-1" class="overflow-hidden transition-all duration-300 ease-in-out">
-                            <div class="pb-5">
-                            This project focuses on collecting and displaying Chimera performance 
-                            data in a clear and user-friendly dashboard.
-                            </div> 
-                        </div>
-                    </div>
+            <div id="section-project-overview" class="flex flex-col p-3 gap-3 border border-secondary w-full">
+                <details> 
+                    <summary class="text-2xl pb-5">Project Overview</summary>
+                    This project focuses on collecting and displaying Chimera performance data in a clear and user-friendly dashboard.
+                </details>
+            </div>
+        
             <!-- Metrics Section -->
             <div id="section-metrics" class="flex flex-col p-3 gap-3 border border-secondary w-full">
-                <button onclick="toggleSection(2)" class="w-full flex justify-between items-center">
-                    <span class="text-2xl">Metrics</span>
-                    <span id = "icon-2" class="transition-transform duration-300">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="w-8 h-8">
-                            <path fill-rule="evenodd" d="M11.78 9.78a.75.75 0 0 1-1.06 0L8 7.06 5.28 9.78a.75.75 0 0 1-1.06-1.06l3.25-3.25a.75.75 0 0 1 1.06 0l3.25 3.25a.75.75 0 0 1 0 1.06Z" clip-rule="evenodd" ></path>
-                        </svg>
-                    </span>
-                </button>
-                <div id="content-2" class="overflow-hidden transition-all duration-300 ease-in-out">
-                    <div class="pb-5">
+                <details>
+                    <summary class="text-2xl pb-5">Metrics</summary>
                     This section will show important system and GPU metrics such as CPU usage, 
                     memory usage, GPU utilization, temperature, and power consumption.
-                    </div> 
-                </div>
+                </details>
             </div>
+           
               
               <!-- Documentation Section -->
             <div id="section-documentation" class="flex flex-col p-3 gap-3 border border-secondary w-full">
-                <button onclick="toggleSection(3)" class="w-full flex justify-between items-center">
-                    <span class="text-2xl">Documentation</span>
-                    <span id = "icon-3" class="transition-transform duration-300">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="w-8 h-8">
-                            <path fill-rule="evenodd" d="M11.78 9.78a.75.75 0 0 1-1.06 0L8 7.06 5.28 9.78a.75.75 0 0 1-1.06-1.06l3.25-3.25a.75.75 0 0 1 1.06 0l3.25 3.25a.75.75 0 0 1 0 1.06Z" clip-rule="evenodd" ></path>
-                        </svg>
-                    </span>
-                </button>
-                <div id="content-3" class="overflow-hidden transition-all duration-300 ease-in-out">
+                <details>
+                    <summary class="text-2xl pb-5">Documentation</summary>
                     <div class="pb-5">
                     <p>Our task is to collect performance metrics from servers on the UMass Boston CS 
-                    cluster and visually displays them on a dashboard website. The project uses two main tools: </p>
-                  <ul>
-                      <li><strong>Prometheus</strong> - software that reads data metrics from a server and stores them in a database.</li>
-                      <li><strong>Grafana</strong> - software that displays the data stored by Prometheus as visual charts and graphs.</li>
-                  </ul>
-                  <p>In order for Prometheus to collect data, a node exporter must be deployed on each server. 
-                    A node exporter is the program that takes live readings from the system - 
-                    CPU usage, memory, system load, and more. 
-                    Prometheus reads from the node exporter in timed intervals and stores the results in a database, 
-                    building a history of the system's performance over time.</p>
-                </div>
+                        cluster and visually displays them on a dashboard website. The project uses two main tools: </p>
+                        <ul>
+                        <li><strong>Prometheus</strong> - software that reads data metrics from a server and stores them in a database.</li>
+                        <li><strong>Grafana</strong> - software that displays the data stored by Prometheus as visual charts and graphs.</li>
+                        </ul>
+                    <p>In order for Prometheus to collect data, a node exporter must be deployed on each server. 
+                        A node exporter is the program that takes live readings from the system - 
+                        CPU usage, memory, system load, and more. 
+                        Prometheus reads from the node exporter in timed intervals and stores the results in a database, 
+                        building a history of the system's performance over time.</p>
+                    </div>
 
-                    <div class="pb-5">
-                        <!-- dated subject sections here -->
-                         <div class="flex flex-col p-3 gap-3 border border-secondary w-full">
-                         <button onclick="toggleInside(1)" class="w-full flex gap-4">
-                            <span id = "insideIcon-1" class="transition-transform duration-300">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
-                                </svg>
-                            </span>
-                            <span class="text-1xl">March 31, 2026</span>
-                        </button>
-                        <div id="insideContent-1" class="overflow-hidden transition-all duration-300 ease-in-out">
-
+                    <!-- date details will go here ...-->
+                </details>
+                    <span class="text-1xl">March 31, 2026</span>      
                             <div class="pb-5">
                                 <img class="w-1/2 h-auto" src="./media/diagram_4.31.png" alt="diagram_4.31.png" />
                                 <p>So far, we have accomplished 4 main tasks:</p>
@@ -173,14 +137,12 @@
                                 </ul>
                             </div> 
                         </div>
-                        </div>
-                </div>
-                </div>
-          </div>
-          <!-- Team Members Section -->
-              <div id="section-team-members" class="flex flex-col p-3 gap-3 border border-secondary w-full">
+                    <!-- Team Members Section -->
+                    <div id="section-team-members" class="flex flex-col p-3 gap-3 border border-secondary w-full">
                   <div class="w-full text-2xl">Team Members</div>
                   <p>Blake, Phoenix, Stephanie, Desmond, Dhruv Aihemaiti </p>
+              </div>
+              </div>
               </div>
       </div>
       </div>

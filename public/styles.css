@@ -7,14 +7,7 @@
       "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
     --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
       "Courier New", monospace;
-    --color-slate-300: oklch(86.9% 0.022 252.894);
-    --color-slate-500: oklch(55.4% 0.046 257.417);
-    --color-slate-800: oklch(27.9% 0.041 260.031);
-    --color-gray-800: oklch(27.8% 0.033 256.848);
-    --color-white: #fff;
     --spacing: 0.25rem;
-    --text-sm: 0.875rem;
-    --text-sm--line-height: calc(1.25 / 0.875);
     --text-base: 1rem;
     --text-base--line-height: calc(1.5 / 1);
     --text-2xl: 1.5rem;
@@ -197,9 +190,6 @@
     width: calc(var(--spacing) * 6);
     height: calc(var(--spacing) * 6);
   }
-  .h-6 {
-    height: calc(var(--spacing) * 6);
-  }
   .h-8 {
     height: calc(var(--spacing) * 8);
   }
@@ -214,9 +204,6 @@
   }
   .w-1\/2 {
     width: calc(1 / 2 * 100%);
-  }
-  .w-6 {
-    width: calc(var(--spacing) * 6);
   }
   .w-8 {
     width: calc(var(--spacing) * 8);
@@ -287,9 +274,6 @@
     font-size: var(--text-base);
     line-height: var(--tw-leading, var(--text-base--line-height));
   }
-  .text-gray-800 {
-    color: var(--color-gray-800);
-  }
   .text-pastel-light-pink {
     color: var(--color-pastel-light-pink);
   }
@@ -331,11 +315,6 @@
       }
     }
   }
-  .dark\:text-white {
-    @media (prefers-color-scheme: dark) {
-      color: var(--color-white);
-    }
-  }
 }
 :root {
   --primary: #FCFCFC;
@@ -346,6 +325,26 @@
   --primary: #5D576B;
   --secondary: #FCFCFC;
   --accent: #5D576B;
+}
+summary {
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+summary::-webkit-details-marker {
+  display: none;
+}
+summary::after {
+  content: '';
+  width: 40px;
+  height: 40px;
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="w-8 h-8"><path fill-rule="evenodd" d="M11.78 9.78a.75.75 0 0 1-1.06 0L8 7.06 5.28 9.78a.75.75 0 0 1-1.06-1.06l3.25-3.25a.75.75 0 0 1 1.06 0l3.25 3.25a.75.75 0 0 1 0 1.06Z" clip-rule="evenodd" /></svg>');
+  background-size: cover;
+  transition: 0.5s ease;
+}
+details[open] > summary::after {
+  transform: rotate(180deg);
 }
 @layer base {
   h1 {
