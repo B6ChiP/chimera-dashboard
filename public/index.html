@@ -17,7 +17,7 @@
             }
         }
     </script>
-    
+
   <div class="w-full h-screen bg-primary flex flex-row">
     <!-- menu -->
       <div class="w-75 h-full flex flex-col gap-3 p-3 bg-accent">
@@ -33,7 +33,7 @@
             <div class="w-full h-auto flex flex-col p-3 gap-3">
               <h1>Chimera Performance Dashboard</h1>
 
-              <!-- Project Overview Section (editing first collapse) -->
+            <!-- Project Overview Section (editing first collapse) -->
             <div id="section-project-overview" class="flex flex-col p-3 gap-3 border border-secondary w-full">
                 <details> 
                     <summary class="text-2xl pb-5">Project Overview</summary>
@@ -51,7 +51,7 @@
             </div>
            
               
-              <!-- Documentation Section -->
+            <!-- Documentation Section -->
             <div id="section-documentation" class="flex flex-col p-3 gap-3 border border-secondary w-full">
                 <details>
                     <summary class="text-2xl pb-5">Documentation</summary>
@@ -68,23 +68,27 @@
                         Prometheus reads from the node exporter in timed intervals and stores the results in a database, 
                         building a history of the system's performance over time.</p>
                     </div>
-
                     <!-- date details will go here ...-->
-                </details>
-                    <span class="text-1xl">March 31, 2026</span>      
-                            <div class="pb-5">
+                     <div class="flex flex-col p-3 gap-3 border border-secondary w-full">
+                     <details>
+                        <summary class="text-1xl">March 31, 2026</summary>
+                        <div class="pb-5">
                                 <img class="w-1/2 h-auto" src="./media/diagram_4.31.png" alt="diagram_4.31.png" />
                                 <p>So far, we have accomplished 4 main tasks:</p>
-                                <ul>
-                                    <li><strong>Set up virtual machine on CS server</strong> - The VM runs Ubuntu on the CS server. All group members have access by SSHing into the machine.</li>
-                                    <li><strong>Run node exporter on Babbage and Chimera</strong> - Babbage is the CS department's GPU server. Chimera is the cluster we are monitoring. We ran node_exporter on both, successfully reading their metrics.</li>
-                                    <li><strong>Prometheus data collection</strong> - Prometheus is successfully scraping data from the node exporters and storing it.</li>
-                                    <li><strong>Grafana display</strong> - Grafana is connected to Prometheus and correctly displaying the collected metrics.</li>
-                                </ul>
-                            </div> 
-                        </div>
-                    <!-- Team Members Section -->
-                    <div id="section-team-members" class="flex flex-col p-3 gap-3 border border-secondary w-full">
+                            <ul>
+                                <li><strong>Set up virtual machine on CS server</strong> - The VM runs Ubuntu on the CS server. All group members have access by SSHing into the machine.</li>
+                                <li><strong>Run node exporter on Babbage and Chimera</strong> - Babbage is the CS department's GPU server. Chimera is the cluster we are monitoring. We ran node_exporter on both, successfully reading their metrics.</li>
+                                <li><strong>Prometheus data collection</strong> - Prometheus is successfully scraping data from the node exporters and storing it.</li>
+                                <li><strong>Grafana display</strong> - Grafana is connected to Prometheus and correctly displaying the collected metrics.</li>
+                            </ul>
+                        </div> 
+                     </details>
+                     </div>
+                </details>                
+            </div>
+
+            <!-- Team Members Section -->
+                <div id="section-team-members" class="flex flex-col p-3 gap-3 border border-secondary w-full">
                   <div class="w-full text-2xl">Team Members</div>
                   <p>Blake, Phoenix, Stephanie, Desmond, Dhruv Aihemaiti </p>
               </div>
