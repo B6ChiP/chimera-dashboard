@@ -14,19 +14,23 @@
     --accent: #5D576B;
 }
 
-/*details and sum */
-summary {
+/*section details and sum */
+details.section {
+  cursor: pointer; 
+}
+
+details.section > summary {
   list-style: none;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-summary::-webkit-details-marker {
+details.section > summary::-webkit-details-marker {
   display: none;
 }
 
-summary::after{
+details.section > summary::after{
   content: '';
   width: 40px;
   height: 40px;
@@ -35,8 +39,38 @@ summary::after{
   transition: 0.5s ease;
 }
 
-details[open] > summary::after {
+details.section[open] > summary::after {
   transform: rotate(180deg);
+}
+
+/* date details and sum */
+details.dates {
+  cursor: pointer; 
+}
+
+details.dates > summary {
+  list-style: none;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 15px; 
+}
+
+details.dates > summary::-webkit-details-marker {
+  display: none;
+}
+
+details.dates > summary::before {
+  content: '';
+  width: 20px;
+  height: 20px;
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6"><path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" /></svg>');
+  background-size: cover;
+  transition: 0.5s ease;
+}
+
+details.dates[open] > summary::before {
+  transform: rotate(90deg);
 }
 
 @theme {
