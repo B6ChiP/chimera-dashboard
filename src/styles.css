@@ -1,6 +1,4 @@
-*! tailwindcss v4.2.2 | MIT License | https://tailwindcss.com */
-@layer properties;
-@layer theme, base, components, utilities;
+@import "tailwindcss";
 
 @layer theme {
   :root, :host {
@@ -27,6 +25,7 @@
     --color-pastel-white: #FFFAE3;
     --color-pastel-blue: #CCEEDE;
     --color-pastel-aqua: #99E1D9;
+
     --color-primary: var(--primary);
     --color-secondary: var(--secondary);
     --color-accent: var(--accent);
@@ -365,6 +364,65 @@
   }
 }
 
+/*section details and sum */
+details.section {
+  cursor: pointer; 
+}
+
+details.section > summary {
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+details.section > summary::-webkit-details-marker {
+  display: none;
+}
+
+details.section > summary::after{
+  content: '';
+  width: 40px;
+  height: 40px;
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="w-8 h-8"><path fill-rule="evenodd" d="M11.78 9.78a.75.75 0 0 1-1.06 0L8 7.06 5.28 9.78a.75.75 0 0 1-1.06-1.06l3.25-3.25a.75.75 0 0 1 1.06 0l3.25 3.25a.75.75 0 0 1 0 1.06Z" clip-rule="evenodd" /></svg>');
+  background-size: cover;
+  transition: 0.5s ease;
+}
+
+details.section[open] > summary::after {
+  transform: rotate(180deg);
+}
+
+/* date details and sum */
+details.dates {
+  cursor: pointer; 
+}
+
+details.dates > summary {
+  list-style: none;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 15px; 
+}
+
+details.dates > summary::-webkit-details-marker {
+  display: none;
+}
+
+details.dates > summary::before {
+  content: '';
+  width: 20px;
+  height: 20px;
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6"><path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" /></svg>');
+  background-size: cover;
+  transition: 0.5s ease;
+}
+
+details.dates[open] > summary::before {
+  transform: rotate(90deg);
+}
+
 /* LIGHT THEME */
 :root {
   --primary: #FCFCFC;
@@ -443,7 +501,7 @@
   background-color: #5D576B;
 }
 
-sidebar a:hover,
+.sidebar a:hover,
 [data-theme="light"] .sidebar a:hover {
   background-color: #fb94ac;
 }
