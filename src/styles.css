@@ -25,6 +25,7 @@
     --color-pastel-white: #FFFAE3;
     --color-pastel-blue: #CCEEDE;
     --color-pastel-aqua: #99E1D9;
+
     --color-primary: var(--primary);
     --color-secondary: var(--secondary);
     --color-accent: var(--accent);
