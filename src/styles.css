@@ -500,7 +500,7 @@ details.dates[open] > summary::before {
   background-color: #5D576B;
 }
 
-sidebar a:hover,
+.sidebar a:hover,
 [data-theme="light"] .sidebar a:hover {
   background-color: #fb94ac;
 }
