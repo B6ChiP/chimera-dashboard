@@ -11,38 +11,35 @@
     function toggleTheme() {
       const theme = localStorage.getItem('theme') || 'light';
       if (theme === 'dark') {
-        localStorage.setItem('theme', 'light'); // Save preference
+        localStorage.setItem('theme', 'light');
         document.documentElement.setAttribute('data-theme', 'light');
       } else {
-        localStorage.setItem('theme', 'dark'); // Save preference
+        localStorage.setItem('theme', 'dark');
         document.documentElement.setAttribute('data-theme', 'dark');
       }
     }
   </script>
 
   <div class="w-full h-screen bg-primary flex flex-row">
-    <!-- menu -->
     <div class="sidebar w-75 h-full flex flex-col gap-3 p-3">
       <h3>Menu</h3>
-      <a class="text-base no-underline" href="#section-project-overview">Project
-        Overview</a>
+      <a class="text-base no-underline" href="#section-project-overview">Project Overview</a>
       <a class="text-base text-pastel-light-pink no-underline" href="#section-metrics">Metrics</a>
       <a class="text-base text-pastel-light-pink no-underline" href="#section-documentation">Documentation</a>
-      <a class="text-base text-pastel-light-pink no-underline" href="#section-team-members">Team
-        Members</a>
+      <a class="text-base text-pastel-light-pink no-underline" href="#section-team-members">Team Members</a>
       <button onclick="toggleTheme()" class="bg-transparent text-secondary p-2 mt-auto border border-pastel-light-pink">
-        Switch Theme </button>
+        Switch Theme
+      </button>
     </div>
+
     <div class="h-full w-full overflow-y-auto text-secondary">
       <div class="w-full h-auto flex flex-col p-3 gap-3">
         <h1>Chimera Performance Dashboard</h1>
 
-        <!-- Project Overview Section (editing first collapse) -->
         <div id="section-project-overview" class="flex flex-col p-3 gap-3 border border-secondary w-full">
           <details class="section">
             <summary class="text-2xl pb-5">Project Overview</summary>
             This project focuses on collecting and displaying data from UMass Boston's systems in a way that is clear and user-friendly. Specifically we will focus on displaying data from two components.
-
             <ul>
               <li><strong>Babbage</strong> - A machine on the CS Department's server that has an NVIDIA RTX 4080 GPU. Anyone can SSH into it and use it directly. We initially planned to test our software stack on Babbage before pivoting to Chimera directly.</li>
               <li><strong>Chimera</strong> - A GPU cluster made up of 32 GPUs (Nvidia H200s), 224 CPU cores, and 2TB of RAM. This system is what we ultimately want to extract data from and build a dashboard for.</li>
@@ -50,7 +47,6 @@
           </details>
         </div>
 
-        <!-- Metrics Section -->
         <div id="section-metrics" class="flex flex-col p-3 gap-3 border border-secondary w-full">
           <details class="section">
             <summary class="text-2xl pb-5">Metrics</summary>
@@ -59,71 +55,72 @@
           </details>
         </div>
 
-        <!-- Documentation Section -->
         <div id="section-documentation" class="flex flex-col p-3 gap-3 border border-secondary w-full">
           <details class="section">
             <summary class="text-2xl pb-5">Documentation</summary>
             <div class="pb-5">
-              <p>Our task is to collect performance metrics from servers on the UMass Boston CS
-                cluster and visually displays them on a dashboard website. The project uses two main tools: </p>
+              <p>Our task is to collect performance metrics from servers on the UMass Boston CS cluster and visually displays them on a dashboard website. The project uses two main tools:</p>
               <ul>
-                <li><strong>Prometheus</strong> - software that reads data metrics from a server and stores them in a
-                  database.</li>
-                <li><strong>Grafana</strong> - software that displays the data stored by Prometheus as visual charts and
-                  graphs.</li>
+                <li><strong>Prometheus</strong> - software that reads data metrics from a server and stores them in a database.</li>
+                <li><strong>Grafana</strong> - software that displays the data stored by Prometheus as visual charts and graphs.</li>
               </ul>
-              <p>In order for Prometheus to collect data, a node exporter must be deployed on each server.
-                A node exporter is the program that takes live readings from the system -
-                CPU usage, memory, system load, and more.
-                Prometheus reads from the node exporter in timed intervals and stores the results in a database,
-                building a history of the system's performance over time.</p>
+              <p>In order for Prometheus to collect data, a node exporter must be deployed on each server. A node exporter is the program that takes live readings from the system - CPU usage, memory, system load, and more. Prometheus reads from the node exporter in timed intervals and stores the results in a database, building a history of the system's performance over time.</p>
             </div>
-            <!-- date details will go here ...-->
-            <div class="flex flex-col p-3 gap-3 border border-secondary w-full">
-              <details class="dates">
-                <summary class="text-1xl">March 31, 2026</summary>
-                <div class="pb-5 pt-5">
-                  <img class="w-1/2 h-auto" src="./media/diagram_4.31.png" alt="diagram_4.31.png" />
-                  <p>So far, we have accomplished 4 main tasks:</p>
-                  <ul>
-                    <li><strong>Set up virtual machine (b6) on CS server</strong> - The VM runs Ubuntu on the CS server. All
-                      group members have access by SSHing into the machine.</li>
-                    <li><strong>Run node exporter on b6</strong> - node_exporter is a tool that reads metrics from the system (memory, cpu usage, etc.). We started it on our VM confirming that it was running and exposing metrics.</li>
-                    <li><strong>Prometheus data collection</strong> - Prometheus is successfully scraping data from the
-                      node exporter and storing it.</li>
-                    <li><strong>Grafana display</strong> - Grafana is connected to Prometheus and correctly displaying
-                      the collected metrics.</li>
-                  </ul>
-                </div>
-              </details>
-              <!-- start here detail box-->
-              <details class="dates">
-                <summary class="text-1xl">April 17, 2026</summary>
-                <div class="pb-5 pt-5">
-                  <strong>Setbacks</strong>
-                  <p>We attempted to set up the DCGM exporter on Babbage. The DCGM exporter is a tool made by NVDIA to expose metrics on their GPUs. Babbage is the GPU owned by the CS department. We were unsuccesfull in installing the DCGM exporter because the version of Go on Babbage was too old, and the owners of the GPU did not want any changes made to the system.</p>
-                  <strong>Solution</strong>
-                  <p>We discovered that Chimera has both a node exporter and DCGM exporter running on their system. Therefore, we pivoted to running software to adapt directly for Chimera</p>
-                </div>
-              </details>
-              <details class="dates">
-                <summary class="text-1xl">April 21, 2026</summary>
-                <div class="pb-5 pt-5">
-                  <p>Put the new flow chart here</p>
-                </div>
-              </details>
+
+            <div class="flex flex-col gap-3">
+
+              <div class="flex flex-col p-3 gap-3 border border-secondary w-full">
+                <details class="dates">
+                  <summary class="text-1xl">March 31, 2026</summary>
+                  <div class="pb-5 pt-5">
+                    <img class="w-1/2 h-auto" src="./media/diagram_4.31.png" alt="diagram_4.31.png" />
+                    <p>So far, we have accomplished 4 main tasks:</p>
+                    <ul>
+                      <li><strong>Set up virtual machine (b6) on CS server</strong> - The VM runs Ubuntu on the CS server. All group members have access by SSHing into the machine.</li>
+                      <li><strong>Run node exporter on b6</strong> - node_exporter is a tool that reads metrics from the system (memory, cpu usage, etc.). We started it on our VM confirming that it was running and exposing metrics.</li>
+                      <li><strong>Prometheus data collection</strong> - Prometheus is successfully scraping data from the node exporter and storing it.</li>
+                      <li><strong>Grafana display</strong> - Grafana is connected to Prometheus and correctly displaying the collected metrics.</li>
+                    </ul>
+                  </div>
+                </details>
+              </div>
+
+              <div class="flex flex-col p-3 gap-3 border border-secondary w-full">
+                <details class="dates">
+                  <summary class="text-1xl">April 14, 2026</summary>
+                  <div class="pb-5 pt-5">
+                    <ul>
+                      <li><strong>Readings on the dashboard</strong> - Grafana dashboard is gathering the data from the CPU, and we're successfully gathering the metrics on the dashboard.</li>
+                      <li>Services for both Prometheus and node_exporter are running.</li>
+                      <li>Both services running on VM provided by Tom.</li>
+                    </ul>
+                  </div>
+                </details>
+              </div>
+
+              <div class="flex flex-col p-3 gap-3 border border-secondary w-full">
+                <details class="dates">
+                  <summary class="text-1xl">April 17, 2026</summary>
+                  <div class="pb-5 pt-5">
+                    <strong>Setbacks</strong>
+                    <p>We attempted to set up the DCGM exporter on Babbage. The DCGM exporter is a tool made by NVIDIA to expose metrics on their GPUs. Babbage is the GPU owned by the CS department. We were unsuccessful in installing the DCGM exporter because the version of Go on Babbage was too old, and the owners of the GPU did not want any changes made to the system.</p>
+                    <strong>Solution</strong>
+                    <p>We discovered that Chimera has both a node exporter and DCGM exporter running on their system. Therefore, we pivoted to running software to adapt directly for Chimera.</p>
+                  </div>
+                </details>
+              </div>
+
             </div>
           </details>
         </div>
-        <!-- Team Members Section -->
+
         <div id="section-team-members" class="flex flex-col p-3 gap-3 border border-secondary w-full">
           <div class="w-full text-2xl">Team Members</div>
-          <p>Blake, Phoenix, Stephanie, Desmond, Dhruv, Aihemaiti </p>
+          <p>Blake, Phoenix, Stephanie, Desmond, Dhruv, Aihemaiti</p>
         </div>
+
       </div>
     </div>
-  </div>
-  </div>
   </div>
 
 </body>
