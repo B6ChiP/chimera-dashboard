@@ -105,7 +105,7 @@
                     <strong>Setbacks</strong>
                     <p>We attempted to set up the DCGM exporter on Babbage. The DCGM exporter is a tool made by NVIDIA to expose metrics on their GPUs. Babbage is the GPU owned by the CS department. We were unsuccessful in installing the DCGM exporter because the version of Go on Babbage was too old, and the owners of the GPU did not want any changes made to the system.</p>
                     <strong>Solution</strong>
-                    <p>We discovered that Chimera has both a node exporter and DCGM exporter running on their system. Therefore, we pivoted to running software to adapt directly for Chimera.</p>
+                    <p>We were provided the DCGM exporter on chimera21 and the cpu node_exporter was downloaded on Chimera's head node. Therefore, we pivoted to running software to adapt directly for Chimera.</p>
                   </div>
                 </details>
               </div>
