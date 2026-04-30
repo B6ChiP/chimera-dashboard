@@ -607,7 +607,7 @@ details.dates[open] > summary::before {
 }
 
 [data-theme="green"] .sidebar a:hover {
-  background-color: #5D576B;
+  background-color: #547B77;
 }
 
 @layer base {
