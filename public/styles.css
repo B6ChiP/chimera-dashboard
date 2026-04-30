@@ -260,10 +260,11 @@
     --default-mono-font-family: var(--font-mono);
     --font-display: "Satoshi", "sans-serif";
     --color-pastel-pink: #F7567C;
-    --color-pastel-light-pink: #5D576B;
+    --color-pastel-purple: #5D576B;
     --color-pastel-white: #FFFAE3;
     --color-pastel-blue: #CCEEDE;
     --color-pastel-aqua: #99E1D9;
+    --color-pastel-green: #547B77;
     --color-primary: var(--primary);
     --color-secondary: var(--secondary);
     --color-accent: var(--accent);
@@ -590,6 +591,25 @@ details.dates[open] > summary::before {
   --secondary: #F2F2F7;
   --accent: #807B8B;
 }
+[data-theme="green"] {
+  --primary: #D4F3E8;
+  --secondary: #5D576B;
+  --accent: #7DA39D;
+}
+
+[data-theme="green"] .sidebar {
+  background: linear-gradient(to bottom, #789893, #BDE7DF);
+}
+
+[data-theme="green"] .sidebar h3,
+[data-theme="green"] .sidebar a {
+  color: #F2F2F7;
+}
+
+[data-theme="green"] .sidebar a:hover {
+  background-color: #5D576B;
+}
+
 @layer base {
   h1 {
     font-size: var(--text-4xl);

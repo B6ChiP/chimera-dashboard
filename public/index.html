@@ -9,14 +9,15 @@
 <body>
   <script>
     function toggleTheme() {
-      const theme = localStorage.getItem('theme') || 'light';
-      if (theme === 'dark') {
-        localStorage.setItem('theme', 'light');
-        document.documentElement.setAttribute('data-theme', 'light');
-      } else {
-        localStorage.setItem('theme', 'dark');
-        document.documentElement.setAttribute('data-theme', 'dark');
-      }
+      const themes = ['light', 'dark', 'green'];
+      const currentTheme = localStorage.getItem('theme') || 'light';
+
+      let currentIndex = themes.indexOf(currentTheme);
+      let nextIndex = (currentIndex + 1) % themes.length;
+      let nextTheme = themes[nextIndex];
+
+      localStorage.setItem('theme', nextTheme);
+      document.documentElement.setAttribute('data-theme', nextTheme);
     }
   </script>
 
